@@ -1,10 +1,4 @@
-from ewasteDetection.logger import logging
-from ewasteDetection.exception import AppException
+from ewasteDetection.pipeline.training_pipeline import TrainPipeline
 
-import sys
-
-try:
-    a = 3 / "s"
-
-except Exception as e:
-    raise AppException(e, sys)
+obj = TrainPipeline()
+obj.run_pipeline()
