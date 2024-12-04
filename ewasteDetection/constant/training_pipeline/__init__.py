@@ -7,7 +7,7 @@ DATA_INGESTION_DIR_NAME: str = "data_ingestion"
 
 DATA_INGESTION_FEATURE_STORE_DIR: str = "feature_store"
 
-DATA_DOWNLOAD_DIR: str = "https://drive.google.com/file/d/1lyK0JzBT0FZRze4P5nNJA-m7nHpwL9Ky/view?usp=drive_link"
+DATA_DOWNLOAD_DIR: str = "https://drive.google.com/file/d/1gie-RkU_D7N7NEkZaneBbnbSfpfZqiPw/view?usp=drive_link"
 
 
 """
@@ -25,8 +25,8 @@ Model Trainer related constant end with MODEL_TRAINER VAR NAME
 """
 MODEL_TRAINER_DIR_NAME: str = "model_trainer"
 
-MODEL_TRAINER_PRETRAINED_WEIGHT_NAME: str = "yolov8s.pt"
+MODEL_TRAINER_PRETRAINED_WEIGHT_NAME: str = "yolo11s.pt"
 
-MODEL_TRAINER_NO_EPOCHS: int = 100
+MODEL_TRAINER_NO_EPOCHS: int = 87
 
 MODEL_TRAINER_BATCH_SIZE: int = 16

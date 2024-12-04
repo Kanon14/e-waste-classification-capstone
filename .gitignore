@@ -164,4 +164,4 @@ cython_debug/
 artifacts/*
 
 # weights after YOLO training
-yolov8s_train/*
+yolov11s_train/*
