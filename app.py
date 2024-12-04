@@ -1,7 +1,7 @@
 import sys, os
-import cv2
+from ultralytics import YOLO
 from ewasteDetection.pipeline.training_pipeline import TrainPipeline
-from ewasteDetection.utils.main_utils import decodeImage, encodeImageIntoBase64
+from ewasteDetection.utils.main_utils import decodeImage, encodeImageIntoBase64, gen_frames
 from flask import Flask, request, jsonify, render_template, Response
 from flask_cors import CORS, cross_origin
 from ewasteDetection.constant.application import APP_HOST, APP_PORT
@@ -9,6 +9,13 @@ from ewasteDetection.constant.application import APP_HOST, APP_PORT
 
 app = Flask(__name__)
 CORS(app)
+
+model = YOLO("../e-waste-classification-capstone/yolov11s_train/best.pt")
+classNames = ['air-cond', 'audio-set', 'battery', 'fan', 'fridge', 
+              'kettle', 'keyboard', 'laptop', 'light-source', 'microwave', 
+              'mouse', 'pcb', 'printer', 'remote', 'smartphone', 
+              'telephone', 'tv', 'usb', 'vape', 'washing-machine']
+
 
 class ClientApp:
     def __init__(self):
@@ -27,6 +34,11 @@ def home():
     return render_template("index.html")
 
 
+@app.route('/video_feed')
+def video_feed():
+    return Response(gen_frames(model=model, classNames=classNames), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
 @app.route("/predict", methods=["POST", "GET"])
 @cross_origin()
 def predictRoute():
@@ -40,10 +52,11 @@ def predictRoute():
                     source='../data/inputImage.jpg' \
                     conf=0.5")
         
-        opencodedbase64 = encodeImageIntoBase64("yolov11s_train/runs/detect/predict/inputImage.jpg")
-        result = {"image": opencodedbase64.decode('utf-8')}
-        
-        os.system("rm -rf yolov11s_train/runs")
+        try:
+            opencodedbase64 = encodeImageIntoBase64("yolov11s_train/runs/detect/predict/inputImage.jpg")
+            result = {"image": opencodedbase64.decode('utf-8')}
+        finally:
+            os.system("rm -rf yolov11s_train/runs")
         
     except ValueError as val:
         print(val)
@@ -51,11 +64,11 @@ def predictRoute():
     except KeyError:
         return Response("Key value error incorrect key passed")
     except Exception as e:
-        print(e)
+        print(f"Error occurred: {e}")
         return Response("Something went wrong")
     
     return jsonify(result)
-        
+
   
 if __name__ == "__main__":
     clApp = ClientApp()

@@ -2,6 +2,10 @@ import os.path
 import sys
 import yaml
 import base64
+import cv2
+import cvzone
+import math
+import time
 
 from ewasteDetection.exception import AppException
 from ewasteDetection.logger import logging
@@ -42,3 +46,51 @@ def decodeImage(imgstring, fileName):
 def encodeImageIntoBase64(croppedImagePath):
     with open(croppedImagePath, "rb") as f:
         return base64.b64encode(f.read())
+    
+
+def gen_frames(model, classNames):
+
+    cap = cv2.VideoCapture(0, cv2.CAP_DSHOW) # CAP_DSHOW: To specify video source, 0: Default camera; 1 and later: External camera
+    cap.set(3, 1280)
+    cap.set(4, 720)
+    cap.set(cv2.CAP_PROP_FOURCC, 0x32595559) # CAP_PROP_FOURCC: 4-character code of codec
+    cap.set(cv2.CAP_PROP_FPS, 25)            # CAP_PROP_FPS: Frame rate
+    
+    prev_frame_time = 0
+    new_frame_time = 0
+    
+    while True:
+        success, img = cap.read() # Read a frame from the video feed
+        if not success:
+            break
+        
+        # Perform object detection
+        results = model(img, stream=True)
+        for r in results:
+            boxes = r.boxes
+            for box in boxes:
+                # Extract bounding box coordinates and class information
+                x1, y1, x2, y2 = int(box.xyxy[0][0]), int(box.xyxy[0][1]), int(box.xyxy[0][2]), int(box.xyxy[0][3])
+                cls = int(box.cls[0])
+                conf = math.ceil((box.conf[0] * 100)) / 100
+                currentClass = classNames[cls]
+
+                # Draw bounding box and label
+                cvzone.putTextRect(img, f'{currentClass} {conf}', 
+                                   (max(0, x1) + 5, max(35, y1) - 7), scale=1, thickness=1, 
+                                   colorT=(255, 255, 255), colorR=(48, 25, 52), offset=5)
+                cv2.rectangle(img, (x1, y1), (x2, y2), (48, 25, 52), 2)
+
+        # Calculate FPS
+        new_frame_time = time.time()
+        fps = 1 / (new_frame_time - prev_frame_time)
+        prev_frame_time = new_frame_time
+        cv2.putText(img, f"FPS: {int(fps)}", (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+
+        # Encode the frame as JPEG
+        (flag, encodedImage) = cv2.imencode('.jpg', img)
+        if not flag:
+            continue
+        # Yield the frame for the streaming response
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + bytearray(encodedImage) + b'\r\n')
