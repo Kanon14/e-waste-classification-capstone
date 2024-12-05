@@ -34,11 +34,6 @@ def home():
     return render_template("index.html")
 
 
-@app.route('/video_feed')
-def video_feed():
-    return Response(gen_frames(model=model, classNames=classNames), mimetype='multipart/x-mixed-replace; boundary=frame')
-
-
 @app.route("/predict", methods=["POST", "GET"])
 @cross_origin()
 def predictRoute():
@@ -68,6 +63,11 @@ def predictRoute():
         return Response("Something went wrong")
     
     return jsonify(result)
+
+
+@app.route('/video_feed')
+def video_feed():
+    return Response(gen_frames(model=model, classNames=classNames), mimetype='multipart/x-mixed-replace; boundary=frame')
 
   
 if __name__ == "__main__":
