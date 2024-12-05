@@ -1,4 +1,4 @@
-# e-waste-classification-capstone
+# 🤖 E-Waste-Classification-Capstone
 
 ## Project Overview
 This capstone project addresses the inefficiencies and health risks associated with manual e-waste sorting by developing an automated system leveraging deep learning and computer vision. The project employs the YOLO (You Only Look Once) object detection algorithm to classify e-waste components with high accuracy, aiming to streamline e-waste management processes and reduce human exposure to hazardous materials.
@@ -29,7 +29,7 @@ pip install -r requirements.txt
 ```
 
 ### Training Data Source and Preparation
-The training data is prepared in [capstone-kanon-2](https://universe.roboflow.com/computer-vision-learning-touhj/capstone-kanon-2) through the Roboflow.
+The training data is prepared in [capstone-kanon-2](https://universe.roboflow.com/computer-vision-learning-touhj/capstone-kanon-2) through the [Roboflow](https://roboflow.com/).
 
 ## Workflow
 The project workflow is designed to facilitate a seamless transition from development to deployment:
@@ -48,4 +48,12 @@ python app.py
 2. Then, access the application via your web browser:
 ```bash
 open http://localhost:<port>
+```
+3. Train the pipeline
+```bash
+http://localhost:<port>/train
+```
+4. To start webcam detection
+```bash
+http://localhost:<port>/video_feed
 ```
