@@ -49,11 +49,11 @@ python app.py
 ```bash
 open http://localhost:<port>
 ```
-3. Train the pipeline
+3. Execute the training pipeline:
 ```bash
 http://localhost:<port>/train
 ```
-4. To start webcam detection
+4. To start real-time webcam detection:
 ```bash
 http://localhost:<port>/video_feed
 ```
