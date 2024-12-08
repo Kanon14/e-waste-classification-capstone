@@ -68,8 +68,9 @@ def predictRoute():
 
 @app.route('/video_feed')
 def video_feed():
-    quantized_model = YOLO("../e-waste-classification-capstone/yolov11s_train/best_ncnn_model")
-    return Response(gen_frames(model=quantized_model, classNames=classNames), mimetype='multipart/x-mixed-replace; boundary=frame')
+    model = YOLO("../e-waste-classification-capstone/yolov11s_train/best.pt") # Instantiate the model
+    model.to("cuda") # Connect the model to the CUDA GPU
+    return Response(gen_frames(model=model, classNames=classNames), mimetype='multipart/x-mixed-replace; boundary=frame')
 
   
 if __name__ == "__main__":
