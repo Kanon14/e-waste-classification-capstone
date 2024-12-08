@@ -10,7 +10,6 @@ from ewasteDetection.constant.application import APP_HOST, APP_PORT
 app = Flask(__name__)
 CORS(app)
 
-model = YOLO("../e-waste-classification-capstone/yolov11s_train/best.pt")
 classNames = ['air-cond', 'audio-set', 'battery', 'fan', 'fridge', 
               'kettle', 'keyboard', 'laptop', 'light-source', 'microwave', 
               'mouse', 'pcb', 'printer', 'remote', 'smartphone', 
@@ -26,6 +25,8 @@ class ClientApp:
 def trainRoute():
     obj = TrainPipeline()
     obj.run_pipeline()
+    model = YOLO("../e-waste-classification-capstone/yolov11s_train/best.pt") # Load the trained model
+    model.export(format="ncnn") # Quantize and save the model for real-time implementation
     return "Training Successfully!!"
 
 
@@ -67,7 +68,8 @@ def predictRoute():
 
 @app.route('/video_feed')
 def video_feed():
-    return Response(gen_frames(model=model, classNames=classNames), mimetype='multipart/x-mixed-replace; boundary=frame')
+    quantized_model = YOLO("../e-waste-classification-capstone/yolov11s_train/best_ncnn_model")
+    return Response(gen_frames(model=quantized_model, classNames=classNames), mimetype='multipart/x-mixed-replace; boundary=frame')
 
   
 if __name__ == "__main__":
