@@ -48,13 +48,13 @@ def encodeImageIntoBase64(croppedImagePath):
         return base64.b64encode(f.read())
     
 
-def gen_frames(model, classNames):
+def gen_frames(model, classNames, videoSource):
 
-    cap = cv2.VideoCapture(0, cv2.CAP_DSHOW) # CAP_DSHOW: To specify video source, 0: Default camera; 1 and later: External camera
+    cap = cv2.VideoCapture(videoSource, cv2.CAP_DSHOW if isinstance(videoSource, int) else cv2.CAP_FFMPEG) # CAP_DSHOW: To specify video source, 0: Default camera; 1 and later: External camera
     cap.set(3, 1280)
     cap.set(4, 720)
     cap.set(cv2.CAP_PROP_FOURCC, 0x32595559) # CAP_PROP_FOURCC: 4-character code of codec
-    cap.set(cv2.CAP_PROP_FPS, 25)            # CAP_PROP_FPS: Frame rate
+    cap.set(cv2.CAP_PROP_FPS, 30)            # CAP_PROP_FPS: Frame rate
     
     prev_frame_time = 0
     new_frame_time = 0

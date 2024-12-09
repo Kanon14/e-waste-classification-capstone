@@ -70,9 +70,22 @@ def predictRoute():
 def video_feed():
     model = YOLO("../e-waste-classification-capstone/yolov11s_train/best.pt") # Instantiate the model
     model.to("cuda") # Connect the model to the CUDA GPU
-    return Response(gen_frames(model=model, classNames=classNames), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(gen_frames(model=model, classNames=classNames, videoSource=0), 
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
 
-  
+
+@app.route('/ip_video_feed')
+def ip_video_feed():
+    """Video feed from the IP webcam."""
+    IP_WEBCAM_URL = "http://192.168.100.4:8080/video"  # Replace with your IP webcam URL
+    model = YOLO("../e-waste-classification-capstone/yolov11s_train/best.pt") # Instantiate the model
+    model.to("cuda") # Connect the model to the CUDA GPU
+    
+    # Modify gen_frames to accept a video source (default: 0 for webcam)
+    return Response(gen_frames(model=model, classNames=classNames, videoSource=IP_WEBCAM_URL), 
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
+    
+
 if __name__ == "__main__":
     clApp = ClientApp()
     app.run(host=APP_HOST, port=APP_PORT, debug=True)
