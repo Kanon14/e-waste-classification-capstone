@@ -6,9 +6,9 @@ This capstone project addresses the inefficiencies and health risks associated w
 ## Project Setup
 ### Prerequisites
 - Python 3.10+
-- PyTorch 1.8+
+- PyTorch 1.8+ [[Download PyTorch Cuda](https://pytorch.org/)]
 - Compatible cuda toolkit and cudnn installed on your machine [[Nvidia GPU Capability](https://developer.nvidia.com/cuda-gpus)] [[Download Cuda Toolkit](https://developer.nvidia.com/cuda-toolkit)] (Note: You must have a [Nvidia Developer Account](https://developer.nvidia.com/login))
-- Anaconda or Miniconda installed on your machine [[Anaconda Download](https://www.anaconda.com/download)].
+- Anaconda or Miniconda installed on your machine [[Download Anaconda](https://www.anaconda.com/download)].
 
 ### Installation
 1. Clone the repository:
@@ -56,4 +56,8 @@ http://localhost:<port>/train
 4. To start real-time webcam detection:
 ```bash
 http://localhost:<port>/video_feed
+```
+5. To start ip-webcam, specify the IPv4 address of your web camera
+```bash
+http://localhost:<port>/ip_video_feed
 ```
