@@ -44,6 +44,7 @@ def predictRoute():
         
         os.system(f"cd yolov11s_train && yolo task=detect mode=predict \
                     model='best.pt' \
+                    device='cuda' \
                     imgsz=640 \
                     source='../data/inputImage.jpg' \
                     conf=0.5")
