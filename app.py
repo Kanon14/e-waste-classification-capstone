@@ -6,7 +6,6 @@ from flask import Flask, request, jsonify, render_template, Response
 from flask_cors import CORS, cross_origin
 from ewasteDetection.constant.application import APP_HOST, APP_PORT
 
-
 app = Flask(__name__)
 CORS(app)
 

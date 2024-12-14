@@ -40,7 +40,7 @@ The project workflow is designed to facilitate a seamless transition from develo
 5. `app.py`: This is the main executable script that ties all other components together and runs the whole pipeline.
 
 ## How to Run
-### Training and Image Detection:
+### Flask Application:
 1. Execute the project:
 ```bash
 python app.py
@@ -61,3 +61,11 @@ http://localhost:<port>/video_feed
 ```bash
 http://localhost:<port>/ip_video_feed
 ```
+### Streamlit Application:
+1. Execute the project:
+```bash
+streamlit run streamlit_app.py
+```
+2. Hovering the sidebar menu to choose a feature: 
+
+![Streamlit Sidemenu](../e-waste-classification-capstone/static/assets/streamlit_menu.png)
