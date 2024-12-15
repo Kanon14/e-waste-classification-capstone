@@ -9,10 +9,6 @@ from ewasteDetection.pipeline.training_pipeline import TrainPipeline
 
 # Load the YOLO model
 model = YOLO("../e-waste-classification-capstone/yolov11s_train/best.pt")
-classNames = ['air-cond', 'audio-set', 'battery', 'fan', 'fridge', 
-              'kettle', 'keyboard', 'laptop', 'light-source', 'microwave', 
-              'mouse', 'pcb', 'printer', 'remote', 'smartphone', 
-              'telephone', 'tv', 'usb', 'vape', 'washing-machine']
 
 # Title
 st.title("E-Waste Detection Application")
