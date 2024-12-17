@@ -62,10 +62,11 @@ http://localhost:<port>/video_feed
 http://localhost:<port>/ip_video_feed
 ```
 ### Streamlit Application:
-1. Execute the project:
+1. Execute the project: 
 ```bash
 streamlit run streamlit_app.py
 ```
-2. Hovering the sidebar menu to choose a feature: 
-
-![Streamlit Sidemenu](../e-waste-classification-capstone/static/assets/streamlit_menu.png)
+2. Then, access the application via your web browser:
+```bash
+open http://localhost:<port>
+```
