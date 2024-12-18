@@ -26,12 +26,18 @@ detection_app_page = st.Page(
     icon="🤖",
 )
 
+chatbot_page = st.Page(
+    page="pages/chatbot.py", 
+    title="E-Waste Chatbot",
+    icon="🤖",
+)
+
 # Navigation Setup
 pg = st.navigation(
     {
         "Home": [homepage],
-        "Info": [about_me_page, ewaste_problem_page],
-        "Projects": [detection_app_page],
+        "Information": [about_me_page, ewaste_problem_page],
+        "Projects": [detection_app_page, chatbot_page],
     }
 )
 

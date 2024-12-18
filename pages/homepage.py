@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Main Content
-st.title("♻️E-Waste Detection Project♻️")
+st.title("♻️:rainbow[E-Waste Detection Project]♻️")
 st.header("An AI-driven solution to address the global e-waste crisis")
 st.write("")
 st.subheader("📜 About This Project")

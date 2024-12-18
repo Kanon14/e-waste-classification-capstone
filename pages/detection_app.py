@@ -10,7 +10,7 @@ from ewasteDetection.pipeline.training_pipeline import TrainPipeline
 # Load the YOLO model
 model = YOLO("../e-waste-classification-capstone/yolov11s_train/best.pt")
 
-st.title("♻️E-Waste Detection Application♻️")
+st.title("♻️:green[E-Waste Detection Application]♻️")
 
 # Sidebar menu for app features
 menu = st.sidebar.radio("Choose a feature", ["Train Model", "Image Detection", "Webcam Detection", "IP Webcam Detection"])

@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Page Title
-st.title("Grasping the Global E-Waste Crisis")
+st.title("Grasping the Global E-Waste Crisis!")
 
 # Introduction Section
 st.image("static/assets/e-waste.jpg", use_container_width=True, caption="The Global E-Waste Crisis")
@@ -49,7 +49,7 @@ These issues disproportionately affect developing nations, where e-waste is ofte
 """)
 
 # Visual: Manual Sorting
-st.image("static/assets/manual-sorting.jpg", use_container_width=True, 
+st.image("static/assets/e-waste-worker-unsafe.png", use_container_width=True, 
          caption="Manual Sorting of E-Waste in Unsafe Environments")
 
 # The Solution Section

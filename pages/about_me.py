@@ -12,7 +12,7 @@ with col2:
     st.write(
         """
         Data Visualization, Computer Vision, AI, and LLM Enthusiast 
-        with a passion for solving real-world problems."
+        with a passion for solving real-world problems.
         """
     )
 
@@ -21,7 +21,7 @@ st.write("\n")
 st.subheader("🔹 Experience & Qualifications", anchor=False)
 st.write(
     """
-    - ✅ Over 2 years of experience in **Data Science** and **AI Applications**.
+    - ✅ Over 3 years of experience in **Data Science** and **AI Applications**.
     - ✅ Strong foundation in **Computer Vision** and **Large Language Models**.
     - ✅ Built and deployed end-to-end **Machine-Learning** and **Deep-Learning** projects.
     - ✅ Proficient in **data storytelling** and creating interactive visualizations for actionable insights.
@@ -34,8 +34,7 @@ st.subheader("🔧 Hard Skills", anchor=False)
 st.write(
     """
     - **Programming Languages**: Python, SQL
-    - **Libraries & Frameworks**: TensorFlow, PyTorch
-    - **Computer Vision**: OpenCV, Ultralytics, OCR
+    - **Libraries & Frameworks**: TensorFlow, PyTorch, OpenCV, Ultralytics, Langchain
     - **Data Visualization**: Tableau, Matplotlib, Seaborn, Power BI, Plotly
     - **Tools & Platforms**: Jupyter Notebook, Google Colab, Ollama
     - **Web Development**: Flask, Streamlit
