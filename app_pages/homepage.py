@@ -19,6 +19,7 @@ st.write(
         - 👤 **Learn About Me**: Discover the creator behind this project.
         - 🌍 **Understand the E-Waste Problem**: Explore the challenges and impacts of e-waste globally.
         - 🤖 **E-Waste Detection Application**: Test the AI-based detection model in action.
+        - 🤖 **E-Waste Chatbot**: Talk with Wall-E to learn more about e-waste.
         """
     )
 

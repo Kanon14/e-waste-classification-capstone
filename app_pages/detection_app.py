@@ -7,9 +7,7 @@ from ultralytics import YOLO
 from ewasteDetection.exception import AppException
 from ewasteDetection.pipeline.training_pipeline import TrainPipeline
 
-# Load the YOLO model
-model = YOLO("../e-waste-classification-capstone/yolov11s_train/best.pt")
-
+# Title of the application
 st.title("♻️:green[E-Waste Detection Application]♻️")
 
 # Sidebar menu for app features
@@ -22,11 +20,11 @@ if menu == "Train Model":
         st.info("Training in progress. Please wait...")
         obj = TrainPipeline()
         obj.run_pipeline()  # Trigger the training pipeline
-        model.export(format="ncnn")  # Export the model for deployment
         st.success("Model training and export completed successfully!")
 
 # Image Detection
 elif menu == "Image Detection":
+    model = YOLO("../e-waste-classification-capstone/yolov11s_train/best.pt")
     st.header("📸 Upload an Image for E-Waste Detection", divider="green")
     uploaded_file = st.file_uploader("Choose an image file", type=["jpg", "png", "jpeg"])
     
@@ -52,6 +50,7 @@ elif menu == "Image Detection":
 
 # Webcam Detection
 elif menu == "Webcam Detection":
+    model = YOLO("../e-waste-classification-capstone/yolov11s_train/best.pt")
     st.header("🎥 Real-Time Detection from Webcam", divider="green")
     
     # Create two columns for Start and Stop Buttons
@@ -95,6 +94,7 @@ elif menu == "Webcam Detection":
 
 # IP Webcam Detection
 elif menu == "IP Webcam Detection":
+    model = YOLO("../e-waste-classification-capstone/yolov11s_train/best.pt")
     st.header("🧿 Real-Time Detection from IP Webcam", divider="green")
 
     # Create two columns for Start and Stop Buttons
