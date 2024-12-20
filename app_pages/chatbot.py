@@ -58,3 +58,11 @@ if prompt:
                 error_message = "An error occurred while processing your request. Please try again."
                 st.error(error_message)
                 st.session_state.messages.append({"role": "assistant", "content": error_message})
+
+# Add Download Button in Sidebar
+st.sidebar.download_button(
+    label="💾 Download Chat History",
+    data=str(st.session_state.messages),
+    file_name="chat_history.txt",
+    mime="text/plain"
+)      

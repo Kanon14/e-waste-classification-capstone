@@ -1,14 +1,32 @@
 # 🤖 E-Waste-Classification-Capstone
 
 ## Project Overview
-This capstone project addresses the inefficiencies and health risks associated with manual e-waste sorting by developing an automated system leveraging deep learning and computer vision. The project employs the YOLO (You Only Look Once) object detection algorithm to classify e-waste components with high accuracy, aiming to streamline e-waste management processes and reduce human exposure to hazardous materials.
+The E-Waste Detection Application is an innovative project leveraging AI-powered object detection to tackle the global e-waste problem. Using YOLO (You Only Look Once) models and a Streamlit-based interface, this application provides real-time e-waste detection via image uploads, webcams, and IP cameras. It aims to streamline e-waste classification, improving recycling efficiency and reducing environmental and health hazards.
+
+## Features
+1. E-Waste Problem Awareness
+- Learn about the global e-waste crisis through detailed visualizations and informative content.
+- Understand the environmental and health impacts of improper e-waste management.
+2. Real-Time E-Waste Detection
+- Image Detection: Upload an image and get instant e-waste classification results.
+- Webcam Detection: Use your computer's webcam for live detection.
+- IP Webcam Detection: Connect an IP camera for remote real-time detection.
+3. AI Chatbot (Wall-E)
+- Interact with Wall-E, an AI-powered chatbot for questions about e-waste.
+- Powered by Llama3.2, it provides insightful responses to user queries.
+4. Model Training
+- Retrain the YOLO model using a simple interface.
+- Export the model for further deployment on lightweight or edge devices.
 
 ## Project Setup
 ### Prerequisites
 - Python 3.10+
 - PyTorch 1.8+ [[Download PyTorch Cuda](https://pytorch.org/)]
 - Compatible cuda toolkit and cudnn installed on your machine [[Nvidia GPU Capability](https://developer.nvidia.com/cuda-gpus)] [[Download Cuda Toolkit](https://developer.nvidia.com/cuda-toolkit)] (Note: You must have a [Nvidia Developer Account](https://developer.nvidia.com/login))
-- Anaconda or Miniconda installed on your machine [[Download Anaconda](https://www.anaconda.com/download)].
+- Anaconda or Miniconda installed on your machine [[Download Anaconda](https://www.anaconda.com/download)]
+- An ollama installed on your machine. [[Download Ollama](https://ollama.com/download)]
+- Install LLM model compatible with your machine, information can be found in [Ollama](https://github.com/ollama/ollama)
+
 
 ### Installation
 1. Clone the repository:
@@ -37,7 +55,7 @@ The project workflow is designed to facilitate a seamless transition from develo
 2. `entity`: Define the data structures for handling inputs and outputs within the system.
 3. `components`: Include all modular parts of the project such as data preprocessing, model training, and inference modules.
 4. `pipelines`: Organize the sequence of operations from data ingestion to the final predictions.
-5. `app.py`: This is the main executable script that ties all other components together and runs the whole pipeline.
+5. `application`: This is the main executable script that ties all other components together and runs the whole pipeline.
 
 ## How to Run
 ### Flask Application:
