@@ -28,7 +28,7 @@ st.markdown("""
 # Visual Representation: Global E-Waste Trend
 st.subheader("🌎 Global E-Waste Generation Over Time")
 st.image("static/assets/global-e-waste-generated.jpg", use_container_width=True, 
-         caption="E-Waste Generation and Recycling Trends: 2010-2030")
+         caption="E-Waste Generation and Recycling Trends: 2010-2030 [1]")
 
 st.write("""
 The chart above illustrates the **growing scale of e-waste generation** and the gap in recycling rates over the past decade. Without immediate action, global e-waste could reach unsustainable levels, further harming the environment.
@@ -67,3 +67,10 @@ AI-driven solutions, like the **E-Waste Detection Application** in this project,
 st.info("""
 🔍 Explore the **E-Waste Detection Application** to see how AI can automate e-waste classification and contribute to solving this global challenge!
 """)
+
+# References
+st.write("")
+st.subheader("References:")
+st.write("[1] [Global E-Waste Monitor 2024](https://ewastemonitor.info/wp-content/uploads/2024/12/GEM_2024_EN_11_NOV-web.pdf)")
+st.write("[2] [WHO: E-Waste](https://www.who.int/news-room/fact-sheets/detail/electronic-waste-(e-waste))")
+st.write("[3] [The Growing Environmental Risks of E-Waste](https://www.genevaenvironmentnetwork.org/resources/updates/the-growing-environmental-risks-of-e-waste/)")
