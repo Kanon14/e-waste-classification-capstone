@@ -2,7 +2,7 @@ import streamlit as st
 import ollama
 
 # Title and Introduction
-st.title("🤖 :rainbow[Wall-E]")
+st.title(":rainbow[Wall-E]")
 st.write("A chatbot powered by **Llama3.2**. Ask me anything!")
 
 # Initialize chat messages in session state

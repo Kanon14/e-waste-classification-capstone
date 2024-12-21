@@ -11,21 +11,21 @@ from ewasteDetection.pipeline.training_pipeline import TrainPipeline
 st.title("♻️:green[E-Waste Detection Application]♻️")
 
 # Sidebar menu for app features
-menu = st.sidebar.radio("Choose a feature", ["Train Model", "Image Detection", "Webcam Detection", "IP Webcam Detection"])
+menu = st.sidebar.radio("Choose a feature:", ["Train Model", "Image Detection", "Webcam Detection", "IP Webcam Detection"])
 
-# Train Model
+# Model Training Pipeline
 if menu == "Train Model":
     st.header("Train the E-Waste Detection Model", divider="green")
     if st.button("Start Training"):
         st.info("Training in progress. Please wait...")
-        obj = TrainPipeline()
-        obj.run_pipeline()  # Trigger the training pipeline
+        obj = TrainPipeline() # Instantiate the training pipeline object
+        obj.run_pipeline()  # Run the training pipeline
         st.success("Model training and export completed successfully!")
 
 # Image Detection
 elif menu == "Image Detection":
     model = YOLO("../e-waste-classification-capstone/yolov11s_train/best.pt")
-    st.header("📸 Upload an Image for E-Waste Detection", divider="green")
+    st.header("📱 Upload an Image for E-Waste Detection", divider="green")
     uploaded_file = st.file_uploader("Choose an image file", type=["jpg", "png", "jpeg"])
     
     if uploaded_file is not None:
@@ -110,7 +110,7 @@ elif menu == "IP Webcam Detection":
         cap.set(3, 640)  # Reduce resolution to 640x480 for performance
         cap.set(4, 480)
         cap.set(cv2.CAP_PROP_BUFFERSIZE, 2)  # Increase buffer size
-        cap.set(cv2.CAP_PROP_FPS, 30)  # Limit FPS
+        cap.set(cv2.CAP_PROP_FPS, 20)  # Limit FPS
 
         try:
             while cap.isOpened():
@@ -135,7 +135,7 @@ elif menu == "IP Webcam Detection":
                     st.warning(f"Error during YOLO detection: {str(e)}. Skipping this frame...")
 
                 # Optional: Add delay for stability
-                time.sleep(0.05)  # Add a 50ms delay to reduce system load
+                time.sleep(0.05)  # Add a 50 ms delay to reduce system load
 
         except Exception as e:
             st.error(f"An error occurred: {str(e)}")

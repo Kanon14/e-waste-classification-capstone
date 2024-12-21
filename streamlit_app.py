@@ -28,7 +28,7 @@ detection_app_page = st.Page(
 
 chatbot_page = st.Page(
     page="app_pages/chatbot.py", 
-    title="E-Waste Chatbot",
+    title="Chatbot",
     icon="🤖",
 )
 
@@ -42,7 +42,7 @@ pg = st.navigation(
 )
 
 # Share on All Pages
-st.logo("static/assets/ewp-logo-dashed.webp", size="large")
+st.logo("static/assets/ewp-logo-dashed.png", size="large")
 st.sidebar.text("Created by 🎧 Kanon14")
 
 # Run Application
