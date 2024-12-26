@@ -11,6 +11,13 @@ from ewasteDetection.exception import AppException
 from ewasteDetection.logger import logging
 
 def read_yaml_file(file_path: str) -> dict:
+    """
+    Reads a YAML file and returns its content as a dictionary.
+
+    :param file_path: Path to the YAML file.
+    :return: Content of the YAML file as a dictionary.
+    :raises AppException: If reading the file fails.
+    """
     try:
         with open(file_path, "rb") as yaml_file:
             logging.info("Read yaml file successfully")
@@ -21,6 +28,14 @@ def read_yaml_file(file_path: str) -> dict:
     
 
 def write_yaml_file(file_path: str, content: object, replace: bool = False) -> None:
+    """
+    Writes content to a YAML file. Optionally replaces the file if it already exists.
+
+    :param file_path: Path to the YAML file.
+    :param content: Content to write into the YAML file.
+    :param replace: Whether to replace the file if it already exists.
+    :raises AppException: If writing the file fails.
+    """
     try:
         if replace:
             if os.path.exists(file_path):
@@ -37,6 +52,12 @@ def write_yaml_file(file_path: str, content: object, replace: bool = False) -> N
     
 
 def decodeImage(imgstring, fileName):
+    """
+    Decodes a base64-encoded image string and writes it to a file.
+
+    :param imgstring: Base64-encoded image string.
+    :param fileName: Name of the file to save the decoded image.
+    """
     imgdata = base64.b64decode(imgstring)
     with open("./data/" + fileName, 'wb') as f:
         f.write(imgdata)
@@ -44,15 +65,29 @@ def decodeImage(imgstring, fileName):
 
 
 def encodeImageIntoBase64(croppedImagePath):
+    """
+    Encodes an image into a base64 string.
+
+    :param croppedImagePath: Path to the image file to be encoded.
+    :return: Base64-encoded string of the image.
+    """
     with open(croppedImagePath, "rb") as f:
         return base64.b64encode(f.read())
     
 
 def gen_frames(model, classNames, videoSource):
+    """
+    Generates frames from a video source, performs object detection, and annotates the frames.
 
+    :param model: The object detection model.
+    :param classNames: List of class names for object detection.
+    :param videoSource: Video source (integer for webcam or string for IP camera).
+    :yield: Annotated video frames in JPEG format for streaming.
+    """
+    # Initialize video capture with the specified source
     cap = cv2.VideoCapture(videoSource, cv2.CAP_DSHOW if isinstance(videoSource, int) else cv2.CAP_FFMPEG) # CAP_DSHOW: To specify video source, 0: Default camera; 1 and later: External camera
-    cap.set(3, 1280)
-    cap.set(4, 720)
+    cap.set(3, 1280) # Set video width
+    cap.set(4, 720) # Set video height
     cap.set(cv2.CAP_PROP_FOURCC, 0x32595559) # CAP_PROP_FOURCC: 4-character code of codec
     cap.set(cv2.CAP_PROP_FPS, 30)            # CAP_PROP_FPS: Frame rate
     
