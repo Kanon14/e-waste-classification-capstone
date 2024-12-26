@@ -9,7 +9,19 @@ from ewasteDetection.entity.artifacts_entity import DataIngestionArtifact
 
 
 class DataIngestion:
+    """
+    This class handles the data ingestion process, including downloading the dataset 
+    from a specified URL, extracting the downloaded zip file, and preparing it for 
+    further processing.
+    """
+    
     def __init__(self, data_ingestion_config: DataIngestionConfig = DataIngestionConfig()):
+        """
+        Constructor for the DataIngestion class.
+        
+        :param data_ingestion_config: Configuration for data ingestion including 
+                                      download URL and directory paths.
+        """
         try:
             self.data_ingestion_config = data_ingestion_config
         except Exception as e:
@@ -18,9 +30,11 @@ class DataIngestion:
         
     def download_data(self) -> str:
         """
-        Fetch data from the url
+        Downloads the dataset from a specified URL to a local directory.
+
+        :return: Path to the downloaded zip file.
+        :raises AppException: If an error occurs during the download process.
         """
-        
         try:
             dataset_url = self.data_ingestion_config.data_download_url
             zip_download_dir = self.data_ingestion_config.data_ingestion_dir
@@ -43,11 +57,12 @@ class DataIngestion:
         
     def extract_zip_file(self, zip_file_path: str) -> str:
         """
-        zip_file_path: str
-        Extracts the zip file into the data directory
-        Function returns None
-        """
+        Extracts the downloaded zip file into a specified directory.
         
+        :param zip_file_path: Path to the zip file to be extracted.
+        :return: Path to the directory where files are extracted.
+        :raises AppException: If an error occurs during the extraction process.
+        """
         try:
             feature_store_path = self.data_ingestion_config.feature_store_file_path
             os.makedirs(feature_store_path, exist_ok=True)
@@ -62,6 +77,12 @@ class DataIngestion:
         
         
     def initiate_data_ingestion(self) -> DataIngestionArtifact:
+        """
+        Orchestrates the data ingestion process by downloading and extracting the dataset.
+        
+        :return: DataIngestionArtifact containing paths to the zip file and extracted data directory.
+        :raises AppException: If an error occurs during the data ingestion process.
+        """
         logging.info("Entered initiate_data_ingestion method of Data_Ingestion class")
         try:
             zip_file_path = self.download_data()

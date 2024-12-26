@@ -7,12 +7,33 @@ from ultralytics import YOLO
 
 
 class ModelTrainer:
+    """
+    This class handles the training of the YOLO model for object detection.
+    It manages data preparation, model training, and cleanup processes.
+    """
+    
     def __init__(self, 
                  model_trainer_config: ModelTrainerConfig):
+        """
+        Constructor for the ModelTrainer class.
+        
+        :param model_trainer_config: Configuration object containing training parameters like
+                                     weights, batch size, and number of epochs.
+        """
         self.model_trainer_config = model_trainer_config
         
         
     def initiate_model_trainer(self) -> ModelTrainerArtifact:
+        """
+        Orchestrates the entire model training process, including:
+        - Unzipping and preparing data
+        - Training the YOLO model
+        - Saving the best-trained model
+        - Cleaning up temporary files
+
+        :return: ModelTrainerArtifact containing the path to the best-trained model.
+        :raises AppException: If any step of the process fails.
+        """
         logging.info("Entered intiate_model_trainer method of ModelTrainer class")
         
         try:

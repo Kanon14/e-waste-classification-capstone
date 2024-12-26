@@ -8,12 +8,22 @@ from ewasteDetection.entity.artifacts_entity import (DataIngestionArtifact,
 
 
 class DataValidation:
+    """
+    This class handles the validation of ingested data by ensuring the required files
+    are present in the specified feature store directory.
+    """
+    
     def __init__(
         self,
         data_ingestion_artifact: DataIngestionArtifact,
         data_validation_config: DataValidationConfig
         ):
-        
+        """
+        Constructor for the DataValidation class.
+
+        :param data_ingestion_artifact: Contains paths to the ingested data artifacts.
+        :param data_validation_config: Configuration for data validation, including required files and directories.
+        """
         try:
             self.data_ingestion_artifact = data_ingestion_artifact
             self.data_validation_config = data_validation_config
@@ -22,6 +32,12 @@ class DataValidation:
         
         
     def validate_all_files_exist(self) -> bool:
+        """
+        Validates if all the required files exist in the feature store directory.
+
+        :return: Boolean indicating whether validation was successful or not.
+        :raises AppException: If an error occurs during the validation process.
+        """
         try:
             validation_status = None
             
@@ -46,6 +62,12 @@ class DataValidation:
         
         
     def initiate_data_validation(self) -> DataValidationArtifact:
+        """
+        Orchestrates the data validation process by checking the presence of required files.
+
+        :return: DataValidationArtifact containing the validation status.
+        :raises AppException: If an error occurs during the validation process.
+        """
         logging.info("Entered initiate_data_validation method of DataValidation class")
         try:
             status = self.validate_all_files_exist()

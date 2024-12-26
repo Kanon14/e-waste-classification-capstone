@@ -60,11 +60,15 @@ elif menu == "Webcam Detection":
     
     if start_button:
         video_placeholder = st.empty()  # Placeholder for displaying video frames
+        fps_placeholder = st.empty()  # Placeholder for displaying FPS value
+
         cap = cv2.VideoCapture(0, cv2.CAP_DSHOW) # Open default webcam
         cap.set(3, 1280)  # Set frame width
         cap.set(4, 720)   # Set frame height
         cap.set(cv2.CAP_PROP_FOURCC, 0x32595559) # CAP_PROP_FOURCC: 4-character code of codec
         cap.set(cv2.CAP_PROP_FPS, 30)            # CAP_PROP_FPS: Frame rate
+        
+        prev_frame_time = 0 # Previous frame time
         
         try:
             while cap.isOpened():
@@ -80,9 +84,17 @@ elif menu == "Webcam Detection":
                 results =model.track(source=frame, verbose=False, device="cuda", stream=True, persist=True)
                 for res in results:
                     annotated_frame = res.plot() # Annotate the frame with detection results
+                    
+                # Calculate FPS
+                new_frame_time = time.time()
+                fps = 1 / (new_frame_time - prev_frame_time) if prev_frame_time != 0 else 0
+                prev_frame_time = new_frame_time
             
-                # Display the frame with annotations
+                # Update the video placeholder with the annotated frame
                 video_placeholder.image(annotated_frame, use_container_width=True, channels="BGR")
+                
+                # Update the FPS placeholder with the current FPS value
+                fps_placeholder.markdown(f"**FPS:** {int(fps)}")
                 
         except Exception as e:
             st.error(f"An error occurred: {str(e)}")
@@ -106,11 +118,15 @@ elif menu == "IP Webcam Detection":
 
     if start_button and ip_url:
         video_placeholder = st.empty()  # Placeholder for displaying video frames
+        fps_placeholder = st.empty()  # Placeholder for displaying FPS value
+        
         cap = cv2.VideoCapture(ip_url, cv2.CAP_FFMPEG)  # Open IP webcam feed
         cap.set(3, 640)  # Reduce resolution to 640x480 for performance
         cap.set(4, 480)
         cap.set(cv2.CAP_PROP_BUFFERSIZE, 2)  # Increase buffer size
-        cap.set(cv2.CAP_PROP_FPS, 20)  # Limit FPS
+        cap.set(cv2.CAP_PROP_FPS, 30)  # Limit FPS
+        
+        prev_frame_time = 0 # Previous frame time
 
         try:
             while cap.isOpened():
@@ -128,13 +144,22 @@ elif menu == "IP Webcam Detection":
                     results = model.track(source=frame, verbose=False, device="cuda", stream=True, persist=True)
                     for res in results:
                         annotated_frame = res.plot()  # Annotate the frame with detection results
+                        
+                    # Calculate FPS
+                    new_frame_time = time.time()
+                    fps = 1 / (new_frame_time - prev_frame_time) if prev_frame_time != 0 else 0
+                    prev_frame_time = new_frame_time   
 
-                    # Display the frame with annotations
+                    # Update the video placeholder with the annotated frame
                     video_placeholder.image(annotated_frame, use_container_width=True, channels="BGR")
+                    
+                    # Update the FPS placeholder with the current FPS value
+                    fps_placeholder.markdown(f"**FPS:** {int(fps)}")
+                    
                 except Exception as e:
                     st.warning(f"Error during YOLO detection: {str(e)}. Skipping this frame...")
 
-                # Optional: Add delay for stability
+                # Add delay for stability
                 time.sleep(0.05)  # Add a 50 ms delay to reduce system load
 
         except Exception as e:
