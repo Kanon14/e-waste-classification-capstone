@@ -20,6 +20,12 @@ ewaste_problem_page = st.Page(
     icon="🌍",
 )
 
+dataset_page = st.Page(
+    page="app_pages/dataset.py", 
+    title="E-Waste Dataset", 
+    icon="📂",
+)
+
 detection_app_page = st.Page(
     page="app_pages/detection_app.py", 
     title="E-Waste Detection Application",
@@ -37,7 +43,7 @@ pg = st.navigation(
     {
         "Home": [homepage],
         "Information": [about_me_page, ewaste_problem_page],
-        "Projects": [detection_app_page, chatbot_page],
+        "Projects": [dataset_page, detection_app_page, chatbot_page],
     }
 )
 
