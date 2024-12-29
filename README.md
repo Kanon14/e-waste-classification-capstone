@@ -1,53 +1,59 @@
-# 🤖 E-Waste-Classification-Capstone
+# 🤖 E-Waste Detection Project ♻️
 
 ## Project Overview
-The E-Waste Detection Application is an innovative project leveraging AI-powered object detection to tackle the global e-waste problem. Using YOLO (You Only Look Once) models and a Streamlit-based interface, this application provides real-time e-waste detection via image uploads, webcams, and IP cameras. It aims to streamline e-waste classification, improving recycling efficiency and reducing environmental and health hazards.
+The <font color='lightgreen'>**E-Waste Detection Application**</font> aims to automate the sorting and detection of e-waste components using YOLO-based object detection models. By improving recycling efficiency and reducing human exposure to hazardous materials, this project provides a significant step toward a cleaner, healthier, and more sustainable future.
+
+This repository includes a curated dataset, a multi-functional Streamlit web application, and an AI-powered chatbot for real-time interaction.
 
 ## Features
-1. E-Waste Problem Awareness
-- Learn about the global e-waste crisis through detailed visualizations and informative content.
-- Understand the environmental and health impacts of improper e-waste management.
-2. Real-Time E-Waste Detection
-- Image Detection: Upload an image and get instant e-waste classification results.
-- Webcam Detection: Use your computer's webcam for live detection.
-- IP Webcam Detection: Connect an IP camera for remote real-time detection.
-3. AI Chatbot (Wall-E)
-- Interact with Wall-E, an AI-powered chatbot for questions about e-waste.
-- Powered by Llama3.2, it provides insightful responses to user queries.
-4. Model Training
-- Retrain the YOLO model using a simple interface.
-- Export the model for further deployment on lightweight or edge devices.
+1. **E-Waste Problem Awareness**
+    - Learn about the global e-waste crisis through detailed visualizations and informative content.
+    - Understand the environmental and health impacts of improper e-waste management.
+2. **Curated E-Waste Dataset**
+    - **Dataset Size**: 10,000 images, annotated with 20 distinct classes such as *batteries, laptops, keyboards, fans, and more*.
+    - **Format**: Images in `.jpg`, `.jpeg` and `.png` with YOLO-compatible annotations.
+    - **Source**: Curated images from online repositories, synthetic data generation, and manual annotations.
+    - **Access**: Publicly available in [Capstone-Kanon-2](https://universe.roboflow.com/computer-vision-learning-touhj/capstone-kanon-2) through the [Roboflow](https://roboflow.com/).
+3. **E-Waste Detection Application**
+    - Train the detection model directly within the app. 
+    - Upload images or use live video feeds (webcam or IP webcam) for detection.
+    - Visualize results with bounding boxes, class labels, and FPS metrics.
+4. **Chatbot (Wall-E)**
+    - AI-powered chatbot capable of answering e-waste-related questions in real time.
+    - Powered by Llama3.2, allowing dynamic, conversational interactions.
 
 ## Project Setup
 ### Prerequisites
 - Python 3.10+
-- PyTorch 1.8+ [[Download PyTorch Cuda](https://pytorch.org/)]
+- PyTorch Cuda 1.8+ [[Download PyTorch Cuda](https://pytorch.org/)]
 - Compatible cuda toolkit and cudnn installed on your machine [[Nvidia GPU Capability](https://developer.nvidia.com/cuda-gpus)] [[Download Cuda Toolkit](https://developer.nvidia.com/cuda-toolkit)] (Note: You must have a [Nvidia Developer Account](https://developer.nvidia.com/login))
 - Anaconda or Miniconda installed on your machine [[Download Anaconda](https://www.anaconda.com/download)]
-- An ollama installed on your machine. [[Download Ollama](https://ollama.com/download)]
-- Install LLM model compatible with your machine, information can be found in [Ollama](https://github.com/ollama/ollama)
+- An ollama installed on your machine [[Download Ollama](https://ollama.com/download)]
+- Install LLM model compatible with your machine, information can be found in [[Ollama GitHub](https://github.com/ollama/ollama)]
 
 
 ### Installation
-1. Clone the repository:
+1. **Clone the repository:**
 ```bash
 git clone https://github.com/Kanon14/e-waste-classification-capstone.git
 cd e-waste-classification-capstone
 ```
 
-2. Create and activate a Conda environment:
+2. **Create and activate a Conda environment:**
 ```bash
 conda create -n ewaste python=3.10 -y
 conda activate ewaste
 ```
 
-3. Install dependencies:
+3. **Install dependencies:**
 ```bash
 pip install -r requirements.txt
 ```
 
-### Training Data Source and Preparation
-The training data is prepared in [capstone-kanon-2](https://universe.roboflow.com/computer-vision-learning-touhj/capstone-kanon-2) through the [Roboflow](https://roboflow.com/).
+4. **Installing required ollama model:**
+```bash
+ollama pull llama3.2
+```
 
 ## Workflow
 The project workflow is designed to facilitate a seamless transition from development to deployment:
@@ -58,33 +64,30 @@ The project workflow is designed to facilitate a seamless transition from develo
 5. `application`: This is the main executable script that ties all other components together and runs the whole pipeline.
 
 ## How to Run
-### Flask Application:
-1. Execute the project:
-```bash
-python app.py
-```
-2. Then, access the application via your web browser:
-```bash
-open http://localhost:<port>
-```
-3. Execute the training pipeline:
-```bash
-http://localhost:<port>/train
-```
-4. To start real-time webcam detection:
-```bash
-http://localhost:<port>/video_feed
-```
-5. To start ip-webcam, specify the IPv4 address of your web camera
-```bash
-http://localhost:<port>/ip_video_feed
-```
-### Streamlit Application:
-1. Execute the project: 
+1. **Execute the project:**
 ```bash
 streamlit run streamlit_app.py
 ```
-2. Then, access the application via your web browser:
+2. **Then, access the application via your web browser:**
 ```bash
 open http://localhost:<port>
 ```
+
+3. **Streamlit Application Structure:**
+![streamlit_app_overview](static/assets/streamlit_app_overview.jpg)
+- `Homepage:` Introduction to the project and navigation instructions.
+- `About Me:` Details about the developer's background and motivation.
+- `Global E-Waste Problem:` Insights into the environmental impacts of e-waste.
+- `E-Waste Dataset:` Dataset details, distribution, and download link.
+- `E-Waste Detection Application:` Real-time object detection with images and live video feeds.
+- `Chatbot:` AI-powered assistant to answer questions and guide users.
+
+## Future Enhancements
+- Integration with edge devices for real-time deployment.
+- Advanced chatbot capabilities with multimodal inputs (text + images).
+- Extension of the dataset with more diverse e-waste categories.
+
+## Acknowledgements
+- **Robotflow:** For dataset hosting and augmentation tools.
+- **Ultralytics:** For the YOLO object detection framework.
+- **Ollama:** For enabling the conversational AI assistant.
