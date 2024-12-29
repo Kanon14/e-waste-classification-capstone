@@ -3,7 +3,7 @@ import ollama
 
 # Title and Introduction
 st.title(":rainbow[Wall-E]")
-st.write("A chatbot powered by **Llama3.2**. Ask me anything!")
+st.write("A chatbot powered by **:blue-background[Llama3.2]**. Ask me anything!")
 
 # Initialize chat messages in session state
 if "messages" not in st.session_state:

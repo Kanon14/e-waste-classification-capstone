@@ -7,19 +7,20 @@ st.write("")
 st.subheader("📜 About This Project")
 st.write(
         """
-        The **E-Waste Detection Project** leverages cutting-edge **AI and computer vision models** 
+        The **:green[E-Waste Detection Project]** leverages cutting-edge **:orange[AI]** and **:orange[computer vision]** models 
         to automate the sorting and detection of e-waste components. By improving recycling efficiency 
         and reducing human exposure to hazardous materials, this project provides a step toward 
-        a **cleaner, healthier, and more sustainable future**.
+        a **:green[cleaner, healthier, and more sustainable future]**.
         """
     )
 st.write(
         """
-        Use the sidebar to explore the following sections:
-        - 👤 **Learn About Me**: Discover the creator behind this project.
-        - 🌍 **Understand the E-Waste Problem**: Explore the challenges and impacts of e-waste globally.
-        - 🤖 **E-Waste Detection Application**: Test the AI-based detection model in action.
-        - 🤖 **Chatbot**: Talk with Wall-E to learn more about e-waste.
+        Use the :gray-background[sidebar] to explore the following sections:
+        - 👤 **:gray-background[Learn About Me: ]** Discover the creator behind this project.
+        - 🌍 **:gray-background[Understand the E-Waste Problem: ]** Explore the challenges and impacts of e-waste globally.
+        - 📂 **:gray-background[E-Waste Dataset: ]** Discover the dataset used by this project.
+        - 🤖 **:gray-background[E-Waste Detection Application: ]** Test the AI-based detection model in action.
+        - 🤖 **:gray-background[Chatbot: ]** Talk with Wall-E to learn more about e-waste.
         """
     )
 

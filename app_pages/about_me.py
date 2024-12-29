@@ -21,7 +21,7 @@ st.write("\n")
 st.subheader("♈ Experience & Qualifications", anchor=False)
 st.write(
     """
-    - ✅ Over 3 years of experience in **Data Science** and **AI Applications**.
+    - ✅ Over 3 years of experience in **Data Science** and **AI** applications.
     - ✅ Strong foundation in **Computer Vision** and **Large Language Models**.
     - ✅ Built and deployed end-to-end **Machine-Learning** and **Deep-Learning** projects.
     - ✅ Proficient in **data storytelling** and creating **interactive visualizations** for actionable insights.

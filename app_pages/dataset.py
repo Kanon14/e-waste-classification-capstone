@@ -7,15 +7,15 @@ st.write("Explore the dataset created for this project, designed to enhance rese
 # Dataset Overview
 st.subheader("🔎 Overview")
 st.write("""
-The **Capstone Kanon E-Waste Dataset** contains over **10,000 images** across **20 categories**, meticulously curated and annotated for object detection tasks. 
+The **:gray-background[E-Waste Dataset]** contains over **10,000 images** across **20 categories**, meticulously curated and annotated for object detection tasks. 
 This dataset aims to facilitate advancements in computer vision for automating e-waste detection and classification.
 """)
 
 st.write("""
 **Key Details:**
-- **Total Images:** 10,000+
+- **Total Images:** 10,000
 - **Number of Classes:** 20
-- **Image Format:** `.jpg` and `.png` with YOLO annotation format.
+- **Image Format:** `.jpg`, `.jpeg`, and `.png` with YOLO annotation format.
 - **Sources:** Curated from online repositories, synthetic data generation, and personal collection.
 - **Intended Use:** Object detection, image classification, and AI model training.
 """)
@@ -59,7 +59,7 @@ st.image(["static/assets/air-cond.jpg", "static/assets/battery.jpg", "static/ass
 
 # Link to Roboflow Dataset
 st.subheader("🔗 Access the Full Dataset")
-st.link_button("Capston-Kanon-2", "https://universe.roboflow.com/computer-vision-learning-touhj/capstone-kanon-2)")
+st.link_button("Capstone-Kanon-2 CV Project", "https://universe.roboflow.com/computer-vision-learning-touhj/capstone-kanon-2")
 
 # Terms of Use
 st.subheader("⚖️ Terms of Use")

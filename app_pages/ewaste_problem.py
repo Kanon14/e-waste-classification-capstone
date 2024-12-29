@@ -60,7 +60,7 @@ Advanced technologies such as **Artificial Intelligence (AI)** and **Computer Vi
 - Improving recycling efficiency by reducing **manual labor risks**.
 - Identifying **reusable** and **recyclable** components more effectively.
 
-AI-driven solutions, like the **E-Waste Detection Application** in this project, are a step toward creating a sustainable future.
+AI-driven solutions, like the **:gray-background[E-Waste Detection Application]** in this project, are a step toward creating a sustainable future.
 """)
 
 # Call to Action
