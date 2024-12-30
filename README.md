@@ -1,7 +1,7 @@
 # 🤖 E-Waste Detection Project ♻️
 
 ## Project Overview
-The <font color='lightgreen'>**E-Waste Detection Application**</font> aims to automate the sorting and detection of e-waste components using YOLO-based object detection models. By improving recycling efficiency and reducing human exposure to hazardous materials, this project provides a significant step toward a cleaner, healthier, and more sustainable future.
+The **E-Waste Detection Application** aims to automate the sorting and detection of e-waste components using YOLO-based object detection models. By improving recycling efficiency and reducing human exposure to hazardous materials, this project provides a significant step toward a cleaner, healthier, and more sustainable future.
 
 This repository includes a curated dataset, a multi-functional Streamlit web application, and an AI-powered chatbot for real-time interaction.
 
@@ -88,6 +88,6 @@ open http://localhost:<port>
 - Extension of the dataset with more diverse e-waste categories.
 
 ## Acknowledgements
-- **Robotflow:** For dataset hosting and augmentation tools.
-- **Ultralytics:** For the YOLO object detection framework.
-- **Ollama:** For enabling the conversational AI assistant.
+- **[Roboflow](https://roboflow.com/):** For dataset hosting and augmentation tools.
+- **[Ultralytics](https://www.ultralytics.com/):** For the YOLO object detection framework.
+- **[Ollama](https://ollama.com/):** For enabling the conversational AI assistant.
