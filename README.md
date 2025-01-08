@@ -79,7 +79,7 @@ open http://localhost:<port>
 - `About Me:` Details about the developer's background and motivation.
 - `Global E-Waste Problem:` Insights into the environmental impacts of e-waste.
 - `E-Waste Dataset:` Dataset details, distribution, and download link.
-- `E-Waste Detection Application:` Real-time object detection with images and live video feeds.
+- `E-Waste Detection Application:` A comprehensive real-time object detection platform featuring MLOps integration. It includes static image upload for detection, live video feeds through webcam and IP cameras, and supports model retraining. Users must run the training feature first to generate the updated model for accurate detections.
 - `Chatbot:` AI-powered assistant to answer questions and guide users.
 
 ## Future Enhancements
