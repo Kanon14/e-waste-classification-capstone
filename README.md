@@ -91,3 +91,17 @@ open http://localhost:<port>
 - **[Roboflow](https://roboflow.com/):** For dataset hosting and augmentation tools.
 - **[Ultralytics](https://www.ultralytics.com/):** For the YOLO object detection framework.
 - **[Ollama](https://ollama.com/):** For enabling the conversational AI assistant.
+
+## Citation
+```bibtex
+@INPROCEEDINGS{11196562,
+  author={Jingxuan, Chua and Ashraf, Humaira and Jhanjhi, Noor Zaman and Ashfaq, Farzeen and Wicaksana, Fikri Arif},
+  booktitle={2025 International Conference on Metaverse and Current Trends in Computing (ICMCTC)}, 
+  title={Automated e-Waste classification: Real-time object detection using YOLO model}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-9},
+  keywords={YOLO;Waste management;Accuracy;Webcams;Computational modeling;Electronic waste;Streaming media;Transformers;Real-time systems;Sorting;YOLO model;e-waste management;printed circuit boards},
+  doi={10.1109/ICMCTC62214.2025.11196562}}
+```
