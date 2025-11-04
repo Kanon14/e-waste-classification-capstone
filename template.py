@@ -31,7 +31,7 @@ list_of_files = [
     "models",
     "templates/index.html",
     "app.py",
-    "streamlit_app.py"
+    "streamlit_app.py",
     "Dockerfile",
     "requirements.txt",
     "setup.py",

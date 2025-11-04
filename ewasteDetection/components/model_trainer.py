@@ -39,17 +39,17 @@ class ModelTrainer:
         try:
             # Unzipping and preparing data
             logging.info("Unzipping data")
-            os.system("unzip data.zip -d yolov11s_train")
+            os.system("unzip data.zip -d models")
             os.system("rm data.zip")
             
             # Ensure the training directory exists
-            os.makedirs("yolov11s_train", exist_ok=True)
+            os.makedirs("models", exist_ok=True)
             
             # Path to the data.yaml which should be relative or configured externally
-            data_yaml_path = os.path.abspath("yolov11s_train/data.yaml")
+            data_yaml_path = os.path.abspath("models/data.yaml")
             
             # Running the training process
-            os.system(f"cd yolov11s_train && yolo task=detect mode=train \
+            os.system(f"cd models && yolo task=detect mode=train \
                     model={self.model_trainer_config.weight_name} \
                     imgsz=640 \
                     lr0=0.001 \
@@ -59,22 +59,22 @@ class ModelTrainer:
                     name='yolov11s_results'")
             
             # Path for saving the best model
-            best_model_path = "yolov11s_train/runs/detect/yolov11s_results/weights/best.pt"
-            os.system(f"cp {best_model_path} yolov11s_train/")
+            best_model_path = "models/runs/detect/yolov11s_results/weights/best.pt"
+            os.system(f"cp {best_model_path} models/")
             
             # Ensure the model trainer directory exists and copy the best model
             os.makedirs(self.model_trainer_config.model_trainer_dir, exist_ok=True)
             os.system(f"cp {best_model_path} {self.model_trainer_config.model_trainer_dir}/")
             
             # Cleanup to remove unnecessary files and directories
-            os.system(f"rm -rf yolov11s_train/{self.model_trainer_config.weight_name}")
-            os.system("rm -rf yolov11s_train/runs") 
-            os.system("rm -rf yolov11s_train/train")
-            os.system("rm -rf yolov11s_train/test")
-            os.system("rm -rf yolov11s_train/valid")
-            os.system("rm -rf yolov11s_train/data.yaml")
-            os.system("rm -rf yolov11s_train/README.dataset.txt")
-            os.system("rm -rf yolov11s_train/README.roboflow.txt")
+            os.system(f"rm -rf models/{self.model_trainer_config.weight_name}")
+            os.system("rm -rf models/runs") 
+            os.system("rm -rf models/train")
+            os.system("rm -rf models/test")
+            os.system("rm -rf models/valid")
+            os.system("rm -rf models/data.yaml")
+            os.system("rm -rf models/README.dataset.txt")
+            os.system("rm -rf models/README.roboflow.txt")
             
             # Creating artifact object for the trained model
             model_trainer_artifact = ModelTrainerArtifact(

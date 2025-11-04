@@ -24,7 +24,7 @@ if menu == "Train Model":
 
 # Image Detection
 elif menu == "Image Detection":
-    model = YOLO("../e-waste-classification-capstone/yolov11s_train/best.pt")
+    model = YOLO("../e-waste-classification-capstone/models/best.pt")
     st.header("📱 Upload an Image for E-Waste Detection", divider="green")
     uploaded_file = st.file_uploader("Choose an image file", type=["jpg", "png", "jpeg"])
     
@@ -50,7 +50,7 @@ elif menu == "Image Detection":
 
 # Webcam Detection
 elif menu == "Webcam Detection":
-    model = YOLO("../e-waste-classification-capstone/yolov11s_train/best.pt")
+    model = YOLO("../e-waste-classification-capstone/models/best.pt")
     st.header("🎥 Real-Time Detection from Webcam", divider="green")
     
     # Create two columns for Start and Stop Buttons
@@ -106,7 +106,7 @@ elif menu == "Webcam Detection":
 
 # IP Webcam Detection
 elif menu == "IP Webcam Detection":
-    model = YOLO("../e-waste-classification-capstone/yolov11s_train/best.pt")
+    model = YOLO("../e-waste-classification-capstone/models/best.pt")
     st.header("🧿 Real-Time Detection from IP Webcam", divider="green")
 
     # Create two columns for Start and Stop Buttons
