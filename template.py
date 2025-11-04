@@ -26,7 +26,7 @@ list_of_files = [
     f"{project_name}/pipeline/training_pipeline.py",
     f"{project_name}/utils/__init__.py",
     f"{project_name}/utils/main_utils.py",
-    "research/trials.ipynb",
+    "notebooks/trials.ipynb",
     "static",
     "models",
     "templates/index.html",
